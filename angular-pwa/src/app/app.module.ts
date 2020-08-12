@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NewsapiService } from './services/newsapi.service';
 import { ArticlesTechnologyComponent } from './articles-technology/articles-technology.component';
 import { ArticlesJavascriptComponent } from './articles-javascript/articles-javascript.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { ArticlesJavascriptComponent } from './articles-javascript/articles-java
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [NewsapiService],
   bootstrap: [AppComponent]
